@@ -13,17 +13,5 @@ MAINTAINER Piergiorgio Ladisa
 ENV REFRESHED_AT 2019-11-07
 ARG RUBY_PATH
 ENV PATH $RUBY_PATH/bin:$PATH
-RUN apt-get update && \
-    apt-get install -y \
-        git \
-        curl \
-        gcc \
-        make \
-        libssl-dev \
-        zlib1g-dev \
-        libmysqlclient-dev \
-        redis-server \
-        libsqlite3-dev
 COPY --from=rubybuild $RUBY_PATH $RUBY_PATH
 CMD [ "irb" ]
-
