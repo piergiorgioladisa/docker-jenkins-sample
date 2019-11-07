@@ -1,7 +1,7 @@
 FROM ubuntu:16.04
 MAINTAINER Piergiorgio Ladisa 
 ENV REFRESHED_AT 2019-11-07
-RUN apt-get update
-RUN apt-get -y install ruby 
-RUN gem install rake -v '12.1.0'
-RUN gem install --no-rdoc --no-ri rspec ci_reporter_rspec 
+RUN \curl -L https://get.rvm.io | bash -s stable
+RUN /bin/bash -l -c "rvm requirements"
+RUN /bin/bash -l -c "rvm install 2.0"
+RUN /bin/bash -l -c "gem install bundler --no-ri --no-rdoc"
